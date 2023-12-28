@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table , Row, Col, Button } from 'reactstrap'
 
-export default function ProjectData({handleProjectTableToggle,handleProjectMapToggle}) {
+export default function ProjectData() {
   return (
     <Row>
         <Col sm={5}>
@@ -83,20 +83,6 @@ export default function ProjectData({handleProjectTableToggle,handleProjectMapTo
             </div>
         </Col>
         <div className='mb-5'></div>
-        <Col sm={12}>
-            <Row>
-                <div className='col-sm-6'>
-                    <Button onClick={handleProjectMapToggle} color='primary' className='m-auto d-block button-100'>
-                        Map
-                    </Button>
-                </div>
-                <div className='col-sm-6'>
-                    <Button onClick={handleProjectTableToggle} color='primary' className='m-auto d-block button-100'>
-                        Statistics
-                    </Button>
-                </div>
-            </Row>
-        </Col>
     </Row>
   )
 }

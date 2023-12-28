@@ -22,7 +22,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-google-charts": "^4.0.1",
+    "react-helmet": "^6.1.0",
     "react-leaflet": "^4.2.1",
+    "react-load-script": "^0.0.6",
+    "react-svg-map": "^2.2.0",
     "reactstrap": "^9.2.1",
     "styled-components": "^6.1.3"
   },
