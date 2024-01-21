@@ -1,10 +1,10 @@
 import React from 'react'
 import { Table , Row, Col, Button } from 'reactstrap'
 
-export default function ProjectData() {
+export default function ProjectData({totalProjects}) {
   return (
     <Row>
-        <Col sm={5}>
+        <Col sm={8} md={5} lg={5}>
             <div className='projectData'>
                 <Table  responsive bordered>
                     <thead>
@@ -23,7 +23,7 @@ export default function ProjectData() {
                                 Website:
                             </th>
                             <td>
-                                www.Cpvarabia.com
+                                <a href='https://www.cpvarabia.com'>www.Cpvarabia.com</a>
                             </td>
                         </tr>
                         <tr>
@@ -39,7 +39,7 @@ export default function ProjectData() {
                                 Email:
                             </th>
                             <td>
-                                mmasry@cpvarabia.com
+                                <a href='mailto:mmasry@cpvarabia.com'>mmasry@cpvarabia.com</a>
                             </td>
                         </tr>
                         <tr>
@@ -62,9 +62,9 @@ export default function ProjectData() {
                 </Table>
             </div>
         </Col>
-        <Col sm={7}>
+        <Col sm={4} md={7} lg={7}>
             <div style={{ maxWidth: 'fit-content' }}>
-                <Table  responsive  bordered>
+                <Table className='text-center'  responsive  bordered>
                     <thead>
                         <tr className="table-primary ps-3">
                             <th colSpan={2}>
@@ -75,7 +75,7 @@ export default function ProjectData() {
                     <tbody>
                         <tr>
                             <td className=" ps-3">
-                                3401 
+                                {totalProjects} 
                             </td>
                         </tr>
                     </tbody>

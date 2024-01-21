@@ -1,12 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Container } from 'reactstrap'
 import ProjectData from './ProjectData'
 import ProjectsTable from './ProjectsTable'
 import Projects1Map from './Map'
 import ProjectsMap from './ProjectsMap'
 import ProjectsMap2 from './SaudiMap'
+import axios from 'axios'
 
 export default function Locations() {
+  const [data , setData] = useState()
+  const [totalProjects,setTotalProjects] = useState(0)
+
+  useEffect(()=>{
+    axios.post('https://rd0.cpvarabia.com/api/BigData/sss.php')
+    .then(res => {
+      let incData = Object.entries(res.data).filter(a=> a[0] !== 'Total' && a[0] !== 'error' && a[0] !== '')
+      setData(incData)
+      setTotalProjects(res.data.Total)
+    })
+
+    .catch(e => console.log(e))
+  },[])
+
   return (
     <div className='content-page'>
       {/* ProjectData component */}
@@ -16,7 +31,7 @@ export default function Locations() {
               Location of the CPV projects in Saudi Arabia
             </div>
             <div className='form-container shadow-lg p-4 bg-body rounded-bottom'>
-              <ProjectData/>
+              <ProjectData totalProjects={totalProjects}/>
             </div>
           </div>
         </Container>
@@ -25,7 +40,7 @@ export default function Locations() {
         <Container>
           <div className='col-lg-11 col-md-10 col-sm-12 m-auto mb-4'>
             <div className='form-container shadow-lg p-4 bg-body rounded'>
-              <ProjectsTable />
+              <ProjectsTable data={data}/>
             </div>
           </div>
         </Container>
