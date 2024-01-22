@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Button, Container } from 'reactstrap'
 import ProjectData from './ProjectData'
 import ProjectsTable from './ProjectsTable'
-import Projects1Map from './Map'
-import ProjectsMap from './ProjectsMap'
 import ProjectsMap2 from './SaudiMap'
 import axios from 'axios'
 
@@ -45,7 +43,7 @@ export default function Locations() {
           </div>
         </Container>
 
-        <Container>
+        {/* <Container>
           <div className='col-lg-11 col-md-10 col-sm-12 m-auto'>
             <div className='form-container shadow-lg p-4 bg-body rounded overflow-auto'>
               <Projects1Map />
@@ -58,11 +56,11 @@ export default function Locations() {
               <ProjectsMap />
             </div>
           </div>
-        </Container>
+        </Container> */}
         <Container>
           <div className='col-lg-11 col-md-10 col-sm-12 m-auto'>
             <div className='form-container shadow-lg p-4 bg-body rounded overflow-auto'>
-              <ProjectsMap2 />
+              <ProjectsMap2 data={data}/>
             </div>
           </div>
         </Container>
