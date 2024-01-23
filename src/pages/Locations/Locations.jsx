@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Container } from 'reactstrap'
+import {Container } from 'reactstrap'
 import ProjectData from './ProjectData'
 import ProjectsTable from './ProjectsTable'
-import ProjectsMap2 from './SaudiMap'
+import ProjectsMap from './SaudiMap'
 import axios from 'axios'
 import { useSearchParams } from 'react-router-dom'
 
@@ -52,7 +52,7 @@ export default function Locations() {
         <Container>
           <div className='col-lg-11 col-md-10 col-sm-12 m-auto'>
             <div className='form-container shadow-lg p-4 bg-body rounded overflow-auto'>
-              <ProjectsMap2 data={data}/>
+              <ProjectsMap data={data}/>
             </div>
           </div>
         </Container>

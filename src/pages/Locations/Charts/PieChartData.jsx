@@ -27,6 +27,7 @@ export default function PieChartM({ props, h, w,legen , stateName }) {
                 `}
               </style>
               {!legen ?
+             
               <PieChart
                 series={[
                   {
@@ -46,30 +47,11 @@ export default function PieChartM({ props, h, w,legen , stateName }) {
                 height={h}
                 width={w}
               />
+         
               :
-              // <div>
-              //   <ul className="style-list">
-              //     <li className="d-flex"><div>Total projects : </div><div className="ms-3">{a[1].Totalprojects}</div></li>
-              //   </ul>
-              // </div>
-              
-              
-              // <PieChart
-              //   series={[
-              //     {
-              //       data: [
-              //         {
-              //           value: a[1].Totalprojects,
-              //           label: 'Total projects : ' + a[1].Totalprojects,
-              //           position: 'bottom',
-              //         },
-              //       ],
-              //     },
-              //   ]}
-              //   width={400}
-              //   height={100}
-              // />
+              <div style={{minHeight:'400px'}}>
               <SecondChart totalpro={a[1].Totalprojects}/>
+              </div>
 }
             </>
           )

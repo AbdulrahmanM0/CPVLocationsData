@@ -58,7 +58,7 @@ const Map = (props) => {
           </div>
           
         </Col>
-        {stateName ? (
+                {stateName ? (
           <Col sm={12} md={12} lg={5}>
             <h5 className="text-center mb-4 p-2" style={{ backgroundColor: '#e5eef7' }}>{stateName}</h5>
             <PieChart legen={true}  showLabel={true} h={100} w={200} stateName={stateName} props={props.data} />
