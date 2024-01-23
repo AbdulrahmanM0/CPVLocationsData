@@ -8,7 +8,6 @@ const sizing = {
 };
 
 export default function PieChartM({ props, h, w,legen , stateName }) {
-  console.log(props);
   const data = [
     { value: 10, label: 'series A' },
     { value: 15, label: 'series B' },

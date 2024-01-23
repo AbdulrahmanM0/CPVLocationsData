@@ -1,10 +1,13 @@
+import { Button } from '@mui/material'
 import React from 'react'
-import { Table , Row, Col, Button } from 'reactstrap'
+import { Table , Row, Col, Spinner } from 'reactstrap'
+import DownloadIcon from '@mui/icons-material/Download';
 
-export default function ProjectData({totalProjects}) {
+
+export default function ProjectData({totalProjects,linkCpv}) {
   return (
     <Row>
-        <Col sm={8} md={5} lg={5}>
+        <Col sm={8} md={12} lg={7}>
             <div className='projectData'>
                 <Table  responsive bordered>
                     <thead>
@@ -62,9 +65,9 @@ export default function ProjectData({totalProjects}) {
                 </Table>
             </div>
         </Col>
-        <Col sm={4} md={7} lg={7}>
+        <Col sm={4} md={5} lg={5}>
             <div style={{ maxWidth: 'fit-content' }}>
-                <Table className='text-center'  responsive  bordered>
+                <Table className='text-center' responsive  bordered>
                     <thead>
                         <tr className="table-primary ps-3">
                             <th colSpan={2}>
@@ -75,14 +78,17 @@ export default function ProjectData({totalProjects}) {
                     <tbody>
                         <tr>
                             <td className=" ps-3">
-                                {totalProjects} 
+                                {totalProjects ? totalProjects : <Spinner />} 
                             </td>
                         </tr>
                     </tbody>
                 </Table>
             </div>
         </Col>
-        <div className='mb-5'></div>
+        <Col sm={12} className='mt-2'>
+                <Button variant="outlined" color="primary" endIcon={<DownloadIcon />} href={linkCpv} download>Download Maps</Button>
+        </Col>
+        <div className='mb-3'></div>
     </Row>
   )
 }

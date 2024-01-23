@@ -4,6 +4,7 @@ import { Table } from 'reactstrap';
 export default function ProjectsTable({ data }) {
   const [total, setTotal] = useState(0);
   const [totalZ0, setTotalZ0] = useState(0);
+  console.log(data)
 
   useEffect(() => {
     if (data) {
@@ -112,14 +113,14 @@ export default function ProjectsTable({ data }) {
             })
           ) : (
             <tr>
-              <td colSpan="8">No data</td>
+              <td colSpan="8" className='p-3 text-center fw-bold'>No data yet</td>
             </tr>
           )}
 
           <tr style={{ borderTop: '2px solid gray' }}>
             <th>Total</th>
-            <th>{total}</th>
-            <th>{totalZ0}</th>
+            <th>{total ? total : 0}</th>
+            <th>{totalZ0 ? totalZ0 : 0}</th>
           </tr>
         </tbody>
       </Table>

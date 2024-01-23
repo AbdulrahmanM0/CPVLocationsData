@@ -18,7 +18,6 @@ const Map = (props) => {
 
     setPosition({ left: xPosition, top: yPosition });
     setStateName(event.target.getAttribute("name"));
-    console.log(xPosition,yPosition)
   };
 
 

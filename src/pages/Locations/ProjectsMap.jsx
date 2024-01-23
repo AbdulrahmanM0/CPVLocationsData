@@ -145,8 +145,7 @@ export default function ProjectsMap() {
               backgroundColor:'transparent',
               position: 'absolute',
               zIndex: '10',
-              // width: '60px',
-              // height: '160px',
+
               ...chartPositions.position,
             }}>
               <div>
