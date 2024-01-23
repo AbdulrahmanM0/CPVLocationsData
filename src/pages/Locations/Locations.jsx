@@ -43,20 +43,6 @@ export default function Locations() {
           </div>
         </Container>
 
-        {/* <Container>
-          <div className='col-lg-11 col-md-10 col-sm-12 m-auto'>
-            <div className='form-container shadow-lg p-4 bg-body rounded overflow-auto'>
-              <Projects1Map />
-            </div>
-          </div>
-        </Container>
-        <Container>
-          <div className='col-lg-11 col-md-10 col-sm-12 m-auto'>
-            <div className='form-container shadow-lg p-4 bg-body rounded overflow-auto'>
-              <ProjectsMap />
-            </div>
-          </div>
-        </Container> */}
         <Container>
           <div className='col-lg-11 col-md-10 col-sm-12 m-auto'>
             <div className='form-container shadow-lg p-4 bg-body rounded overflow-auto'>

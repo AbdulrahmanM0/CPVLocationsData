@@ -6,54 +6,58 @@ import { Col, Row } from "reactstrap";
 import PieChart from "./Charts/PieChartData";
 
 const Map = (props) => {
-  const [position, setPosition] = useState({ top: 0, left: 0 });
+  const [position, setPosition] = useState({ top: 0, left: 0,right: 0,bottom: 0 });
   const [stateName, setStateName] = useState(null);
-  const chartRef = useRef(null);
-  const [lay,setLay] = useState()
 
-  const onLocationClick = (event) => {
-    const svgRect = event.target.getBoundingClientRect();
-    console.log(event.clientX , event.clientY)
-    const clickX = event.clientX - 200;
-    const clickY = event.clientY-750;
-    console.log(clickX , clickY)
+  const onLocationClick = (e) => {
+    const container = document.getElementById('contentContainer');
+    const rect = container.getBoundingClientRect();
 
+    const xPosition = e.clientX - rect.left - 25; // Adjust for image width/2
+    const yPosition = e.clientY - rect.top - 25; // Adjust for image height/2
+
+    setPosition({ left: xPosition, top: yPosition });
     setStateName(event.target.getAttribute("name"));
-    setPosition({ top: clickY, left: clickX });
+    console.log(xPosition,yPosition)
   };
-  console.log(lay)
 
-  useEffect(()=>{
-    window.onresize = () =>  setLay(window.innerWidth)
-  },[])
 
   return (
     <div className="container-fluid ">
       <Row className="justify-content-center">
-        <Col sm={12} md={12} lg={7}>
-          <div className="position-relative mb-3">
-            <div onClick={onLocationClick} style={{minWidth: '448px'}}>
-            <SVGMap map={saudi} />
+        <Col sm={12} md={12} lg={7} className="mb-3">
+          <div className="position-relative mb-3" id="contentContainer"         
+            style={{
+              width: '400px',
+              height: '350px',
+              cursor: 'pointer',
+            }}>
+            <div onClick={onLocationClick} style={{width: '448px'}}>
+              <SVGMap map={saudi} />
             </div>
-            {stateName && lay > 800 &&(
-              <div                 
-              className="position-absolute"
-              style={{
-                position: 'absolute',
-                transform: `translate(${position.left}px, ${position.top}px)`
-              }}>
-              <PieChart
-              
-                stateName={stateName}
-                props={props.data}
-                h={50}
-                w={50}
-                showLabel={false}
-                legen={false}
-              />
+            {stateName && (
+            <div
+                style={{
+                  width:'50px',
+                  height:'50px',
+                  position: 'absolute',
+                  left: `${position.left}px`,
+                  top: `${position.top}px`,
+                  transition: 'left .5s cubic-bezier(.42,-0.3,.78,1.25), top .5s cubic-bezier(.42,-0.3,.78,1.25)',
+                }}
+              >
+                    <PieChart
+                      stateName={stateName}
+                      props={props.data}
+                      h={50}
+                      w={50}
+                      showLabel={false}
+                      legen={false}
+                    />
               </div>
             )}
           </div>
+          
         </Col>
         {stateName ? (
           <Col sm={12} md={12} lg={5}>
